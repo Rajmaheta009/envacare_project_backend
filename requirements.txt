@@ -4,7 +4,7 @@ datetime~=5.5
 pandas~=2.2.3
 sqlalchemy~=2.0.39
 pydantic~=2.10.6
-fastapi~=0.115.12
+fastapi[standard]
 schema~=0.7.7
 modal~=0.73.126
 uvicorn~=0.34.0
