@@ -4,7 +4,7 @@ from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form
 from sqlalchemy.orm import Session
 from sqlalchemy import desc
 from database import get_db
-from modal.order import Order, get_next_id
+from model.order import Order, get_next_id
 from schema.order import OrderCreate, OrderUpdate
 import os
 

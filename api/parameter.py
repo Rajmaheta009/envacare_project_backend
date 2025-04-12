@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from database import get_db
-from modal.parameter import Parameter
+from model.parameter import Parameter
 from schema.parameter import ParameterCreate,ParameterUpdate
 
 
