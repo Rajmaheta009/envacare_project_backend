@@ -20,7 +20,7 @@ if __name__ == "__main__":
     print("Log level:", log_level)
 
     uvicorn.run(
-        "app:app",
+        "main:app",
         host=host,
         port=port,
         log_level=log_level,
