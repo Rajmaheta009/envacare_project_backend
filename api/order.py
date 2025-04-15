@@ -9,6 +9,7 @@ from Schema.order import OrderCreate, OrderUpdate
 import os
 from dotenv import load_dotenv
 load_dotenv()
+BASE_URL = os.getenv('BASE_URL')
 
 router = APIRouter()
 
@@ -16,7 +17,6 @@ router = APIRouter()
 UPLOAD_DIR = "static"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
-BASE_URL = os.getenv('BASE_URL')
 
 # ✅ Helper function to add file URL to order
 def append_filename(order):
