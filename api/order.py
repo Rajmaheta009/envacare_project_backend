@@ -7,6 +7,8 @@ from database import get_db
 from model.order import Order, get_next_id
 from Schema.order import OrderCreate, OrderUpdate
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 router = APIRouter()
 
@@ -14,11 +16,12 @@ router = APIRouter()
 UPLOAD_DIR = "static"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
+BASE_URL = os.getenv('BASE_URL')
 
 # ✅ Helper function to add file URL to order
 def append_filename(order):
     """ Add file URL to order output """
-    file_url = f"http://127.0.0.1:8000/{UPLOAD_DIR}/{order.order_req_doc}" if order.order_req_doc != "No document uploaded" else "No document uploaded"
+    file_url = f"{BASE_URL}{UPLOAD_DIR}/{order.order_req_doc}" if order.order_req_doc != "No document uploaded" else "No document uploaded"
 
     return {
         "id": order.id,

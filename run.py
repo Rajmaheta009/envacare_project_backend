@@ -5,10 +5,10 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
-# Debug prints for environment variables
-print("HOST:", os.getenv("HOST"))
-print("PORT:", os.getenv("PORT"))
-print("LOG_LEVEL:", os.getenv("LOG_LEVEL"))
+# # Debug prints for environment variables
+# print("HOST:", os.getenv("HOST"))
+# print("PORT:", os.getenv("PORT"))
+# print("LOG_LEVEL:", os.getenv("LOG_LEVEL"))
 
 if __name__ == "__main__":
     # Set defaults if environment variables are not set
