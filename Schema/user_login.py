@@ -11,6 +11,19 @@ class UserLogin(BaseModel):
     email: EmailStr
     password: str
 
+class UserRegister(BaseModel):
+    name: str
+    email: EmailStr
+    password: str
+    role: str = "user"
+
+
+class UserResponse(BaseModel):
+    id: int
+    name: str
+    email: EmailStr
+    role: str
+
 class UserUpdate(BaseModel):
     name: str
     email: EmailStr
