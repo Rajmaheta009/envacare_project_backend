@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="71226263-25f8-4b03-aff9-a04d73cb6567" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Schema/user_login.py" beforeDir="false" afterPath="$PROJECT_DIR$/Schema/user_login.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/order.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/order.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/user_login.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/user_login.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

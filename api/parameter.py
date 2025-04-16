@@ -17,7 +17,7 @@ async def create_parameter(parameter: ParameterCreate, db: Session = Depends(get
 
 @router.get("/", status_code=200)
 def get_all_parameters(db: Session = Depends(get_db)):
-    parameters = db.query(Parameter).filter(Parameter.is_delete == False).all()
+    parameters = db.query(Parameter).all()
     return [{"id": p.id, "parent_id": p.parent_id, "name": p.name, "price": p.price,
              "min_range": p.min_range, "max_range": p.max_range,"protocol":p.protocol} for p in parameters]
 
