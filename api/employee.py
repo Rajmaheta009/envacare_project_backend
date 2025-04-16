@@ -4,10 +4,7 @@ from database import get_db
 from model import employee as models
 from Schema import employee as schemas
 
-router = APIRouter(
-    prefix="/employees",
-    tags=["Employees"]
-)
+router = APIRouter()
 
 # Create Employee
 @router.post("/", response_model=schemas.EmployeeOut)

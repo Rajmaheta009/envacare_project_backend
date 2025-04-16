@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71226263-25f8-4b03-aff9-a04d73cb6567" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Schema/department.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Schema/employee.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/department.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/employee.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/department.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/employee.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/backend.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/user_login.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/user_login.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="71226263-25f8-4b03-aff9-a04d73cb6567" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
