@@ -23,7 +23,9 @@ def upgrade() -> None:
      op.create_table(
         'departments',
         sa.Column('id', sa.Integer, primary_key=True, autoincrement=True),
-        sa.Column('name', sa.String(255), nullable=False, unique=True),
+        sa.Column('name', sa.String(255), nullable=False),
+        sa.Column('location', sa.String(255), nullable=False),
+        sa.Column('head_name', sa.String(255), nullable=False),
         sa.Column('is_deleted', sa.Boolean, nullable=False, server_default=sa.text('false')),
         sa.Column('is_active', sa.Boolean, nullable=False, server_default=sa.text('true')),
         sa.Column('created_at', sa.DateTime, server_default=sa.func.now(), nullable=False),

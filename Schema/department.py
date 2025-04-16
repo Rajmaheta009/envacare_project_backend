@@ -4,6 +4,8 @@ from typing import Optional
 
 class DepartmentBase(BaseModel):
     name: str
+    location: str
+    head_name: str
     is_deleted: Optional[bool] = False
     is_active: Optional[bool] = True
 
@@ -15,8 +17,9 @@ class DepartmentUpdate(DepartmentBase):
 
 class DepartmentOut(DepartmentBase):
     id: int
+    name:str
+    location: str
+    head_name: str
     create_at: datetime
     update_at: datetime
 
-    class Config:
-        orm_mode = True
