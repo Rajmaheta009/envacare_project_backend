@@ -6,7 +6,7 @@ from Schema.user_login import UserLogin,UserRegister,UserResponse
 
 router = APIRouter()
 
-@router.post("/registration", response_model=UserResponse, status_code=201)
+@router.post("/register", response_model=UserResponse, status_code=201)
 async def register_user(user: UserRegister, db: Session = Depends(get_db)):
     # Check if user already exists
     existing_user = db.query(User).filter(User.email == user.email).first()
@@ -27,7 +27,7 @@ async def register_user(user: UserRegister, db: Session = Depends(get_db)):
     return new_user
 
 
-@router.post("/", status_code=200)
+@router.post("/login", status_code=200)
 async def login(user: UserLogin, db: Session = Depends(get_db)):
     db_user = db.query(User).filter(User.email == user.email).first()
     if not db_user:

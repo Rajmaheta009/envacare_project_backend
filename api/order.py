@@ -33,7 +33,7 @@ def append_filename(order):
 
 
 # ✅ Create a new order with file upload
-@router.post("/", response_model=dict)
+@router.post("/login", response_model=dict)
 async def create_order(
         customer_id: int = Form(...),
         order_req_comment: str = Form(...),

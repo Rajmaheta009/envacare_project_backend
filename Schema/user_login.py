@@ -15,7 +15,7 @@ class UserRegister(BaseModel):
     name: str
     email: EmailStr
     password: str
-    role: str = "user"
+    role: str
 
 
 class UserResponse(BaseModel):
@@ -27,5 +27,5 @@ class UserResponse(BaseModel):
 class UserUpdate(BaseModel):
     name: str
     email: EmailStr
-    role: str = "user"
+    role: str
     is_delete: bool = False
