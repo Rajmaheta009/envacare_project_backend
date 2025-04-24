@@ -5,22 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71226263-25f8-4b03-aff9-a04d73cb6567" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/api/sample.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/sample.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/11.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Schema/customer_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/Schema/customer_request.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Schema/order.py" beforeDir="false" afterPath="$PROJECT_DIR$/Schema/order.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Schema/quotation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Schema/quotation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/customer_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/customer_request.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/employee.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/employee.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/order.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/order.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/quotation.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/quotation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/customer_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/customer_request.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/order.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/order.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/quotation.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/quotation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/10.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/static/10.pdf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
