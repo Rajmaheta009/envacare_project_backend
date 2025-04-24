@@ -1,6 +1,7 @@
 from pydantic import BaseModel, EmailStr
 
 class custoemr_request_Add(BaseModel):
+    c_name : str
     name: str
     email: EmailStr
     address: str
@@ -10,6 +11,7 @@ class custoemr_request_Add(BaseModel):
 
 class custoemr_request_responce(BaseModel):
     id: int
+    c_name:str
     name: str
     email: EmailStr
     address: str

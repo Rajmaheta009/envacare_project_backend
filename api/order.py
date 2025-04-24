@@ -29,16 +29,18 @@ def append_filename(order):
         "order_req_comment": order.order_req_comment,
         "order_req_doc": file_url,
         "status": order.status,
+        "order_number" : order.order_number
     }
 
 
 # ✅ Create a new order with file upload
-@router.post("/login", response_model=dict)
+@router.post("/", response_model=dict)
 async def create_order(
         customer_id: int = Form(...),
         order_req_comment: str = Form(...),
         status: str = Form(...),
         docfile: Optional[UploadFile] = File(),
+        order_number: str = Form(...),
         db: Session = Depends(get_db)
 ):
     # raise HTTPException(status_code=404,detail=f"{docfile.filename}")
@@ -67,6 +69,8 @@ async def create_order(
         order_req_comment=order_req_comment,
         order_req_doc=new_filename,
         status=status,
+        is_delete = False,
+        order_number = order_number
     )
 
     db.add(new_order)
@@ -80,10 +84,8 @@ async def create_order(
 @router.get("/")
 def get_orders(db: Session = Depends(get_db)):
     """ Retrieve all non-deleted orders with filenames """
-    orders = db.query(Order).all()
-
+    orders = db.query(Order).filter(Order.is_delete == False).all()
     result = [append_filename(order) for order in orders]
-
     return result
 
 
@@ -91,7 +93,7 @@ def get_orders(db: Session = Depends(get_db)):
 @router.get("/order_id/{order_id}")
 def get_order(order_id: int, db: Session = Depends(get_db)):
     """ Retrieve a single order by ID """
-    order = db.query(Order).filter(Order.id == order_id, Order.is_deleted == False).first()
+    order = db.query(Order).filter(Order.id == order_id, Order.is_delete == False).first()
 
     if not order:
         raise HTTPException(status_code=404, detail="Order not found or deleted")
@@ -100,12 +102,12 @@ def get_order(order_id: int, db: Session = Depends(get_db)):
 
 
 # ✅ Get latest order by customer ID (excluding soft deleted)
-@router.get("/customer_id/{customer_id}")
+@router.get("/c_id/{customer_id}")
 def get_order_by_customer_id(customer_id: int, db: Session = Depends(get_db)):
     """ Retrieve the latest order by customer ID """
     latest_order = (
         db.query(Order)
-        .filter(Order.customer_id == customer_id, Order.is_deleted == False)
+        .filter(Order.customer_id == customer_id)
         .order_by(desc(Order.created_at))
         .first()
     )

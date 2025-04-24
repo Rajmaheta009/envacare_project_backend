@@ -1,5 +1,5 @@
 from requests import Session
-from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, text
+from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, text,Boolean
 from datetime import datetime
 from database import Base
 
@@ -12,7 +12,9 @@ class Order(Base):
     order_req_comment = Column(String(255))
     order_req_doc = Column(String(255))
     status = Column(String(255))
+    order_number = Column(String(255))
     created_at = Column(DateTime, default=datetime.utcnow)
+    is_delete = Column(Boolean)
 
 def get_next_id(db: Session):
     result = db.execute(text("SELECT nextval(pg_get_serial_sequence('orders', 'id'))"))

@@ -9,6 +9,10 @@ router = APIRouter()
 
 @router.post("/", response_model=custoemr_request_responce)
 def create_customer(customer: custoemr_request_Add, db: Session = Depends(get_db)):
+    existing_customer = db.query(Customer_request).filter(Customer_request.email == customer.email).first()
+    if existing_customer:
+        raise HTTPException(status_code=400, detail="Email already exists")
+
     db_customer = Customer_request(**customer.dict())
     db.add(db_customer)
     db.commit()

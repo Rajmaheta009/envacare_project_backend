@@ -7,6 +7,7 @@ class OrderBase(BaseModel):
     order_req_comment: Optional[str] = Field(None, max_length=255)
     order_req_doc: Optional[str] = Field(None, max_length=255)
     status: Optional[str] = Field(None, max_length=255)
+    order_number: Optional[str] = Field(None, max_length=255)
 
 class OrderCreate(OrderBase):
     pass
@@ -15,6 +16,7 @@ class OrderUpdate(BaseModel):
     order_req_comment: Optional[str] = Field(None, max_length=255)
     order_req_doc: Optional[str] = Field(None, max_length=255)
     status: Optional[str] = Field(None, max_length=255)
+    order_number: Optional[str] = Field(None, max_length=255)
 
 class OrderOut(OrderBase):
     id: int

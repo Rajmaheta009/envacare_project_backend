@@ -9,7 +9,7 @@ router = APIRouter()
 # Create Employee
 @router.post("/", response_model=schemas.EmployeeOut)
 def create_employee(emp: schemas.EmployeeCreate, db: Session = Depends(get_db)):
-    db_emp = db.query(models.Employee).filter(models.Employee.email == emp.email).first()
+    db_emp = db.query(models.Employee).filter(models.Employee.email == emp.email,models.Employee.is_deleted==False).first()
     if db_emp:
         raise HTTPException(status_code=400, detail="Email already registered")
     new_emp = models.Employee(**emp.dict())

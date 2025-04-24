@@ -5,6 +5,7 @@ from database import Base
 class Customer_request(Base):
     __tablename__ = "customer_info"
     id = Column(Integer, primary_key=True, index=True)
+    c_name = Column(String)
     name = Column(String, index=True)
     email = Column(String(255), unique=True, index=True)  # Added length for email
     address = Column(String)
