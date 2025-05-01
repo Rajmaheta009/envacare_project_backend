@@ -7,7 +7,7 @@ from Schema.quotation import QuotationCreate, QuotationResponse
 router = APIRouter()
 
 # ✅ Create quotation
-@router.post("/quotation/", response_model=QuotationResponse)
+@router.post("/", response_model=QuotationResponse)
 def create_quotation(quotation: QuotationCreate, db: Session = Depends(get_db)):
     new_quotation = Quotation(order_id=quotation.order_id, pdf_url=quotation.pdf_url)
     db.add(new_quotation)
@@ -16,7 +16,7 @@ def create_quotation(quotation: QuotationCreate, db: Session = Depends(get_db)):
     return new_quotation
 
 # ✅ Get single quotation
-@router.get("/quotation/{order_id}", response_model=QuotationResponse)
+@router.get("/{order_id}", response_model=QuotationResponse)
 def get_quotation(order_id: int, db: Session = Depends(get_db)):
     quotation = db.query(Quotation).filter(
         Quotation.order_id == order_id,

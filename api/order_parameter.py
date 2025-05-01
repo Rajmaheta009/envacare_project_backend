@@ -14,12 +14,18 @@ def create_quotation_parameter(payload: OrderParameterCreate, db: Session = Depe
     db.refresh(new_qp)
     return new_qp
 
-@router.get("/{id}", response_model=OrderParameterOut)
-def get_quotation_parameter(id: int, db: Session = Depends(get_db)):
-    qp = db.query(OrderParameter).filter(OrderParameter.id == id, OrderParameter.is_delete == False).first()
+
+@router.get("/op_id/{quotation_id}")
+def get_quotation_parameter(quotation_id: int, db: Session = Depends(get_db)):
+    qp = db.query(OrderParameter).filter(
+        OrderParameter.quotation_id == quotation_id,
+        OrderParameter.is_delete == False
+    ).all()
+
     if not qp:
-        raise HTTPException(status_code=404, detail="Quotation Parameter not found")
+        raise HTTPException(status_code=405, detail="Quotation Parameter not found")
     return qp
+
 
 @router.get("/", response_model=OrderParameterOut)
 def get_quotation_parameter(db: Session = Depends(get_db)):

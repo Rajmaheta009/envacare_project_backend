@@ -21,6 +21,13 @@ def get_all_parameters(db: Session = Depends(get_db)):
     return [{"id": p.id, "parent_id": p.parent_id, "name": p.name, "price": p.price,
              "min_range": p.min_range, "max_range": p.max_range,"protocol":p.protocol} for p in parameters]
 
+@router.get("/p_id/{p_id}", status_code=200)
+def get_all_parameters(p_id:int,db: Session = Depends(get_db)):
+    parameters = db.query(Parameter).filter(Parameter.id == p_id ,Parameter.is_delete == False).all()
+    return [{"id": p.id, "parent_id": p.parent_id, "name": p.name, "price": p.price,
+             "min_range": p.min_range, "max_range": p.max_range,"protocol":p.protocol} for p in parameters]
+
+
 @router.put("/{parameter_id}", status_code=200)
 def update_parameter(parameter_id:int,parameter: ParameterUpdate, db: Session = Depends(get_db)):
     # Retrieve the existing parameter record by its ID
