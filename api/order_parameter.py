@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from database import get_db
 from model.order_parameter import OrderParameter
-from Schema.order_parameter import OrderParameterCreate, OrderParameterOut, OrderParameterUpdate
+from Schema.order_parameter import OrderParameterCreate, OrderParameterOut
 
 router = APIRouter()
 
@@ -27,7 +27,7 @@ def get_quotation_parameter(quotation_id: int, db: Session = Depends(get_db)):
     return qp
 
 
-@router.get("/", response_model=OrderParameterOut)
+@router.get("/")
 def get_quotation_parameter(db: Session = Depends(get_db)):
     qp = db.query(OrderParameter).all()
     if not qp:
@@ -35,7 +35,7 @@ def get_quotation_parameter(db: Session = Depends(get_db)):
     return qp
 
 @router.put("/{id}", response_model=OrderParameterOut)
-def update_quotation_parameter(id: int, payload: OrderParameterUpdate, db: Session = Depends(get_db)):
+def update_quotation_parameter(id: int, payload: OrderParameterCreate, db: Session = Depends(get_db)):
     qp = db.query(OrderParameter).filter(OrderParameter.id == id).first()
     if not qp:
         raise HTTPException(status_code=404, detail="Quotation Parameter not found")
