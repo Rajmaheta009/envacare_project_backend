@@ -1,0 +1,40 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_DB: envacare_project
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: ./envacare_project_backend
+    container_name: backend_app
+    depends_on:
+      - db
+    env_file:
+      - ./envacare_project_backend/.env
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build:
+      context: ./envacare_project_frontend
+    container_name: frontend_app
+    depends_on:
+      - backend
+    env_file:
+      - ./envacare_project_frontend/.env
+    ports:
+      - "8501:8501"
+
+volumes:
+  postgres_data:

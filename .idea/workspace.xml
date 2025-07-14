@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71226263-25f8-4b03-aff9-a04d73cb6567" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Schema/order_parameter.py" beforeDir="false" afterPath="$PROJECT_DIR$/Schema/order_parameter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/order_parameter.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/order_parameter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Schema/quotation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Schema/quotation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/quotation.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/quotation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/quotation.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/quotation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/2.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/static/2.pdf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +31,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Rajmaheta009/envacare_project_backend.git&quot;,
-    &quot;accountId&quot;: &quot;bcbcd6fa-be63-4f58-9246-4ebed84edd54&quot;
+    &quot;accountId&quot;: &quot;42481fbc-ae4f-4e5c-93f1-480f596ceef9&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -38,19 +43,21 @@
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/python  developing/envacare_project/backend",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/RaJ/PycharmProjects/envacare_project_backend&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-4f4e415b4190-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.26053.29" />
+        <option value="bundled-python-sdk-598b0484d0b5-e2d783800521-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-251.26927.74" />
       </set>
     </attachedChunks>
   </component>
