@@ -72,7 +72,7 @@ def create_quotation(
         image_path = new_filename
 
     # Save to database
-    new_quotation = Quotation(order_id=order_id, pdf_url=image_path)
+    new_quotation = Quotation(order_id=order_id, pdf_url=new_filename)
     db.add(new_quotation)
     db.commit()
     db.refresh(new_quotation)
