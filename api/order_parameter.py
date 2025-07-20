@@ -40,6 +40,22 @@ def get_submitted_results(quotation_id: int, db: Session = Depends(get_db)):
     return results
 
 
+@router.put("/submit_results")
+def submit_results(payload: dict, db: Session = Depends(get_db)):
+    results = payload.get("results", [])
+    if not results:
+        raise HTTPException(status_code=400, detail="No results provided")
+
+    for item in results:
+        order_param = db.query(OrderParameter).filter(OrderParameter.id == item["order_param_id"]).first()
+        if order_param:
+            order_param.result = item["result"]
+        else:
+            raise HTTPException(status_code=404, detail=f"OrderParameter with ID {item['order_param_id']} not found")
+
+    db.commit()
+    return {"message": "Results submitted successfully"}
+
 @router.get("/")
 def get_quotation_parameter(db: Session = Depends(get_db)):
     qp = db.query(OrderParameter).all()
@@ -47,9 +63,9 @@ def get_quotation_parameter(db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Quotation Parameter not found")
     return qp
 
-@router.put("/{p_id}", response_model=OrderParameterOut)
-def update_quotation_parameter(p_id: int, payload: OrderParameterCreate, db: Session = Depends(get_db)):
-    qp = db.query(OrderParameter).filter(OrderParameter.parameter_id == p_id).first()
+@router.put("/{q_id}", response_model=OrderParameterOut)
+def update_quotation_parameter(q_id: int, payload: OrderParameterCreate, db: Session = Depends(get_db)):
+    qp = db.query(OrderParameter).filter(OrderParameter.quotation_id == q_id).first()
     if not qp:
         raise HTTPException(status_code=404, detail="Quotation Parameter not found")
     for key, value in payload.dict(exclude_unset=True).items():

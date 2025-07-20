@@ -19,7 +19,7 @@ async def create_parameter(parameter: ParameterCreate, db: Session = Depends(get
 def get_all_parameters(db: Session = Depends(get_db)):
     parameters = db.query(Parameter).all()
     return [{"id": p.id, "parent_id": p.parent_id, "name": p.name, "price": p.price,
-             "min_range": p.min_range, "max_range": p.max_range,"protocol":p.protocol} for p in parameters]
+             "min_range": p.min_range, "max_range": p.max_range,"unit":p.unit,"is_3025_method":p.is_3025_method,"apha_24th_edition_method":p.apha_24th_edition_method} for p in parameters]
 
 @router.get("/p_id/{p_id}", status_code=200)
 def get_all_parameters(p_id: int, db: Session = Depends(get_db)):
@@ -38,7 +38,9 @@ def get_all_parameters(p_id: int, db: Session = Depends(get_db)):
         "price": p.price,
         "min_range": p.min_range,
         "max_range": p.max_range,
-        "protocol": p.protocol
+        "unit": p.unit,
+        "is_3025_method": p.is_3025_method,
+        "apha_24th_edition_method   ": p.apha_24th_edition_method
     } for p in parameters]
 
 @router.put("/{parameter_id}", status_code=200)

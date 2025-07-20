@@ -1,5 +1,4 @@
 from sqlalchemy import Column, Integer, String, Boolean
-from sqlalchemy.ext.declarative import declarative_base
 from database import Base
 
 class OrderParameter(Base):
@@ -12,3 +11,4 @@ class OrderParameter(Base):
     result = Column(String(255))
     is_delete = Column(Boolean, default=False)
     is_active = Column(Boolean, default=True)
+

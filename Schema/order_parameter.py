@@ -12,3 +12,7 @@ class OrderParameterCreate(OrderParameterBase):
 
 class OrderParameterOut(OrderParameterBase):
     id: int
+
+class ResultUpdate(BaseModel):
+    order_param_id: int
+    result: str

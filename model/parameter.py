@@ -12,6 +12,8 @@ class Parameter(Base):
     price = Column(Integer)
     min_range = Column(Integer)
     max_range = Column(Integer)
-    protocol = Column(String)
+    unit = Column(String)
+    is_3025_method= Column(String)
+    apha_24th_edition_method= Column(String)
     is_delete = Column(Boolean, default=False)
 

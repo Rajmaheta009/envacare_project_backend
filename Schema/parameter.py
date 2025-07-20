@@ -6,7 +6,9 @@ class ParameterCreate(BaseModel):
     price: float
     min_range :float
     max_range : float
-    protocol : str
+    is_3025_method : str
+    apha_24th_edition_method : str
+    unit : str
 
 
 class ParameterUpdate(BaseModel):
@@ -14,4 +16,6 @@ class ParameterUpdate(BaseModel):
     price: float = 00.00
     min_range : float = 00.00
     max_range : float= 00.00
-    protocol : str
+    is_3025_method : str
+    apha_24th_edition_method : str
+    unit: str
