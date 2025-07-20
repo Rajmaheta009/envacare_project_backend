@@ -40,7 +40,7 @@ def get_all_parameters(p_id: int, db: Session = Depends(get_db)):
         "max_range": p.max_range,
         "unit": p.unit,
         "is_3025_method": p.is_3025_method,
-        "apha_24th_edition_method   ": p.apha_24th_edition_method
+        "apha_24th_edition_method": p.apha_24th_edition_method
     } for p in parameters]
 
 @router.put("/{parameter_id}", status_code=200)

@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from database import get_db
 from model.order_parameter import OrderParameter
-from Schema.order_parameter import OrderParameterCreate, OrderParameterOut
+from Schema.order_parameter import OrderParameterCreate, OrderParameterOut ,ResultUpdate
 
 router = APIRouter()
 
@@ -39,22 +39,23 @@ def get_submitted_results(quotation_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="No submitted results found")
     return results
 
+@router.put("/result/{q_id}/{p_id}", response_model=OrderParameterOut)
+def update_quotation_parameter(p_id: int, q_id: int, payload: ResultUpdate, db: Session = Depends(get_db)):
+    qp = db.query(OrderParameter).filter(
+        OrderParameter.parameter_id == p_id,
+        OrderParameter.quotation_id == q_id
+    ).first()
 
-@router.put("/submit_results")
-def submit_results(payload: dict, db: Session = Depends(get_db)):
-    results = payload.get("results", [])
-    if not results:
-        raise HTTPException(status_code=400, detail="No results provided")
+    if not qp:
+        raise HTTPException(status_code=404, detail="Parameter not found")
 
-    for item in results:
-        order_param = db.query(OrderParameter).filter(OrderParameter.id == item["order_param_id"]).first()
-        if order_param:
-            order_param.result = item["result"]
-        else:
-            raise HTTPException(status_code=404, detail=f"OrderParameter with ID {item['order_param_id']} not found")
+    for key, value in payload.dict(exclude_unset=True).items():
+        setattr(qp, key, value)
 
     db.commit()
-    return {"message": "Results submitted successfully"}
+    db.refresh(qp)
+    return qp
+
 
 @router.get("/")
 def get_quotation_parameter(db: Session = Depends(get_db)):
@@ -62,6 +63,7 @@ def get_quotation_parameter(db: Session = Depends(get_db)):
     if not qp:
         raise HTTPException(status_code=404, detail="Quotation Parameter not found")
     return qp
+
 
 @router.put("/{q_id}", response_model=OrderParameterOut)
 def update_quotation_parameter(q_id: int, payload: OrderParameterCreate, db: Session = Depends(get_db)):
@@ -73,6 +75,7 @@ def update_quotation_parameter(q_id: int, payload: OrderParameterCreate, db: Ses
     db.commit()
     db.refresh(qp)
     return qp
+
 
 @router.delete("/{id}")
 def delete_quotation_parameter(id: int, db: Session = Depends(get_db)):
