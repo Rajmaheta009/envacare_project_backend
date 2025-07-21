@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.staticfiles import StaticFiles
-from api import user_login,customer_request, order, quotation,sample,parameter,department,employee,order_parameter
+from api import user_login,customer_request, order, quotation,sample,parameter,department,employee,order_parameter,quick_result
 from database import engine, Base
 
 # Create database tables
@@ -29,5 +29,6 @@ app.include_router(sample.router, prefix="/samples", tags=["Samples"])
 app.include_router(parameter.router, prefix="/parameter", tags=["Parameter"])
 app.include_router(department.router, prefix="/department", tags=["department"])
 app.include_router(employee.router, prefix="/employee", tags=["employee"])
+app.include_router(quick_result.router, prefix="/quick_result", tags=["Quick_Result"])
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
