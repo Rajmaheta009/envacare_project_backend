@@ -1,4 +1,4 @@
 .env
 /static/*.pdf
-/static/Quotation/
-/static/oder_docs/
+/static/Quotation/*
+/static/oder_docs/*
