@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71226263-25f8-4b03-aff9-a04d73cb6567" name="Changes" comment="">
+    <list default="true" id="71226263-25f8-4b03-aff9-a04d73cb6567" name="Changes" comment="add some port and recreate code">
+      <change afterPath="$PROJECT_DIR$/static/quotation_pdf_logo_and_pic/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/quotation_pdf_logo_and_pic/logo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Schema/quotation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Schema/quotation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/quotation.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/quotation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/quotation.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/quotation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/Quotation/7.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/static/Quotation/7.pdf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,26 +50,29 @@
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.csvmaker.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/RaJ/PycharmProjects/envacare_project_backend&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.csvmaker.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.qoutation_invoice_maker.executor": "Run",
+    "Python.test.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/RaJ/PycharmProjects/test/envacare_project_backend/static/quotation_pdf_logo_and_pic",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\RaJ\PycharmProjects\test\envacare_project_backend\static\quotation_pdf_logo_and_pic" />
       <recent name="C:\Users\RaJ\PycharmProjects\envacare_project_backend" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\RaJ\PycharmProjects\test\envacare_project_backend\static\quotation_pdf_logo_and_pic" />
       <recent name="C:\Users\RaJ\PycharmProjects\envacare_project_backend" />
     </key>
   </component>
@@ -84,9 +93,38 @@
       <updated>1744718584802</updated>
       <workItem from="1753350278962" duration="263000" />
     </task>
+    <task id="LOCAL-00001" summary="add some port and recreate code">
+      <option name="closed" value="true" />
+      <created>1753383384082</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1753383384082</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add some port and recreate code">
+      <option name="closed" value="true" />
+      <created>1753383495658</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1753383495658</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add some port and recreate code">
+      <option name="closed" value="true" />
+      <created>1753383511350</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1753383511350</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add some port and recreate code" />
+    <option name="LAST_COMMIT_MESSAGE" value="add some port and recreate code" />
   </component>
 </project>

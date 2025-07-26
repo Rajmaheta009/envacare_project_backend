@@ -1,4 +1,5 @@
-from sqlalchemy import Column, Integer, String,Boolean,text
+# --- model/quotation.py ---
+from sqlalchemy import Column, Integer, String, Boolean, text
 from database import Base
 from requests import Session
 
