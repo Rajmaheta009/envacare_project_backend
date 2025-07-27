@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71226263-25f8-4b03-aff9-a04d73cb6567" name="Changes" comment="git ignore changes">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utility/quotation_pdf_generator/custom_quotation.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utility/quotation_pdf_generator/outputfile.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utility/quotation_pdf_generator/qoutation_invoice_maker.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utility/quotation_pdf_generator/template/quotation.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +131,31 @@
       <option name="project" value="LOCAL" />
       <updated>1753539262525</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="git ignore changes">
+      <option name="closed" value="true" />
+      <created>1753539326581</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1753539326581</updated>
+    </task>
+    <task id="LOCAL-00007" summary="git ignore changes">
+      <option name="closed" value="true" />
+      <created>1753539376926</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1753539376926</updated>
+    </task>
+    <task id="LOCAL-00008" summary="git ignore changes">
+      <option name="closed" value="true" />
+      <created>1753539442707</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1753539442707</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

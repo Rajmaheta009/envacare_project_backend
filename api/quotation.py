@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 from database import get_db
 from model.quotation import Quotation, get_next_id
 from Schema.quotation import QuotationCreate, QuotationResponse
-from utility.quotation_pdf_generator.qoutation_invoice_maker import quotation_pdf_create
+from utility.quotation_pdf_generater.qoutation_invoice_maker import quotation_pdf_create
 from dotenv import load_dotenv
 
 load_dotenv()
