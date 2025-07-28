@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71226263-25f8-4b03-aff9-a04d73cb6567" name="Changes" comment="git ignore changes">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utility/quotation_pdf_generator/custom_quotation.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utility/quotation_pdf_generator/outputfile.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utility/quotation_pdf_generator/qoutation_invoice_maker.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utility/quotation_pdf_generator/template/quotation.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Schema/parameter.py" beforeDir="false" afterPath="$PROJECT_DIR$/Schema/parameter.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +65,7 @@
       <recent name="C:\Users\RaJ\PycharmProjects\envacare_project_backend" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\RaJ\PycharmProjects\test\envacare_project_backend" />
       <recent name="C:\Users\RaJ\PycharmProjects\test\envacare_project_backend\static\oder_docs" />
       <recent name="C:\Users\RaJ\PycharmProjects\test\envacare_project_backend\static\quotation_pdf_logo_and_pic" />
       <recent name="C:\Users\RaJ\PycharmProjects\envacare_project_backend" />
