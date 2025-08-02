@@ -1,5 +1,14 @@
 .env
+<<<<<<< HEAD
+.venv
+/static/Quotation
+/static/*.pdf
+=======
 /static/Quotation/*
 /static/oder_docs/*
+<<<<<<< HEAD
 test.py
 .venv
+=======
+>>>>>>> bb358621a504c42f95c35c673d1be11ccf80e282
+>>>>>>> 4148c5440178304396f4dbd658a36aa6702d96d2
