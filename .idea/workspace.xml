@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71226263-25f8-4b03-aff9-a04d73cb6567" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +22,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -64,6 +65,7 @@
       <recent name="C:\Users\RaJ\PycharmProjects\envacare_project_backend" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\RaJ\PycharmProjects\enva_deploy\envacare_project_backend\static" />
       <recent name="C:\Users\RaJ\PycharmProjects\envacare_project_backend" />
     </key>
   </component>
@@ -84,9 +86,22 @@
       <updated>1744718584802</updated>
       <workItem from="1753350278962" duration="263000" />
     </task>
+    <task id="LOCAL-00001" summary="something missing packege install in requirements.txt">
+      <option name="closed" value="true" />
+      <created>1754109050455</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1754109050455</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="something missing packege install in requirements.txt" />
+    <option name="LAST_COMMIT_MESSAGE" value="something missing packege install in requirements.txt" />
   </component>
 </project>
