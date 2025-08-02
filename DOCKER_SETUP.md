@@ -5,6 +5,17 @@ This guide explains how to install Docker, build and run your backend container,
 ## 1. Install Docker Desktop
 - Download and install Docker Desktop from [https://www.docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/).
 - Start Docker Desktop and ensure it is running.
+- 
+## System Requirements
+
+To use WeasyPrint on Windows, install the GTK3 runtime:
+
+1. Download the GTK3 Runtime for Windows:
+   https://github.com/tschoonj/GTK-for-Windows-Runtime-Environment-Installer/releases
+
+2. Install it to `C:\GTK3\` and make sure `C:\GTK3\bin` is added to your system PATH.
+
+3. Restart your terminal before running the app.
 
 ## 2. Build the Docker Image
 Open a terminal in your project directory and run:

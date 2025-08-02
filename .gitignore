@@ -1,3 +1,5 @@
 .env
 /static/Quotation/*
 /static/oder_docs/*
+test.py
+.venv
