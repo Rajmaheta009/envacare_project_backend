@@ -12,6 +12,10 @@ psycopg2
 psycopg2-binary
 xlsxwriter
 jinja2
+<<<<<<< HEAD
 weasyprint
 pydantic[email]
 uvicorn[standard]
+=======
+weasyprint
+>>>>>>> bb358621a504c42f95c35c673d1be11ccf80e282

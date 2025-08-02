@@ -1,4 +1,9 @@
 .env
+<<<<<<< HEAD
 .venv
 /static/Quotation
 /static/*.pdf
+=======
+/static/Quotation/*
+/static/oder_docs/*
+>>>>>>> bb358621a504c42f95c35c673d1be11ccf80e282

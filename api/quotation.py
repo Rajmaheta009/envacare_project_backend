@@ -1,85 +1,56 @@
+# --- api/quotation.py ---
 import shutil
-from fastapi import APIRouter, Depends, HTTPException,UploadFile,File,Form
-from typing import Optional
+import uuid
+import os
+from fastapi import APIRouter, Depends, HTTPException, Body
 from sqlalchemy.orm import Session
 from database import get_db
-from model.quotation import Quotation ,get_next_id
+from model.quotation import Quotation, get_next_id
 from Schema.quotation import QuotationCreate, QuotationResponse
-import os
+from utility.quotation_pdf_generater.qoutation_invoice_maker import quotation_pdf_create
 from dotenv import load_dotenv
+
 load_dotenv()
+
 BASE_URL = os.getenv('BASE_URL')
+UPLOAD_DIR = "static/Quotation/"
 
 router = APIRouter()
 
-UPLOAD_DIR = "static/Quotation/"
+@router.post("/", response_model=dict)
+def create_quotation(payload: QuotationCreate, db: Session = Depends(get_db)):
+    # Step 1: Get next quotation ID manually
+    next_id = get_next_id(db)
 
-def append_filename(quotation):
-    """ Add file URL to order output """
-    file_url = f"{BASE_URL}{UPLOAD_DIR}/{quotation.pdf}" if quotation.pdf != "No document uploaded" else "No document uploaded"
+    # Step 2: Generate PDF
+    quotation_pdf_path = quotation_pdf_create(payload.customer_id, payload.parameter_info)
+
+    # Step 3: Save PDF as static/Quotation/<id>.pdf
+    os.makedirs("static/Quotation", exist_ok=True)
+    filename = f"{next_id}.pdf"
+    output_pdf_path = os.path.join("static/Quotation", filename)
+
+    with open(quotation_pdf_path, "rb") as pdf_file:
+        with open(output_pdf_path, "wb") as f:
+            f.write(pdf_file.read())
+
+    # Step 4: Insert quotation record with fixed ID and filename
+    quotation = Quotation(
+        id=next_id,
+        order_id=payload.order_id,
+        pdf_url=filename,
+        is_active=True,
+        is_delete=False
+    )
+    db.add(quotation)
+    db.commit()
 
     return {
-        "id": quotation.id,
-        "pdf": file_url,
+        "message": "Quotation PDF generated successfully",
+        "pdf_url": filename,
+        "quotation_id": next_id
     }
 
-# # ✅ Create quotation
-# @router.post("/", response_model=QuotationResponse)
-# def create_quotation(order_id:int,
-#                      pdf:Optional[UploadFile] = File()
-#                      , db: Session = Depends(get_db)):
-#     if pdf != "":
-#         next_id = get_next_id(db)
-#         filename = pdf.filename
-#         file_extension = '.' + filename.split('.')[-1] if '.' in filename else ''
-#
-#         new_filename = f"{next_id+1}{file_extension}"
-#
-#         image_path = os.path.join(UPLOAD_DIR, new_filename)
-#
-#         # ✔️ Save the file
-#         with open(image_path, "wb") as f:
-#             shutil.copyfileobj(pdf.file, f)
-#
-#     # raise HTTPException(status_code=400,detail=f"{file_extension}")
-#     # return f"{file_extension}"
-#     else:
-#         new_filename="that is not work"
-#
-#     new_quotation = Quotation(order_id=order_id, pdf_url=new_filename)
-#     db.add(new_quotation)
-#     db.commit()
-#     db.refresh(new_quotation)
-#     return new_quotation
-
-@router.post("/", response_model=dict)
-def create_quotation(
-    order_id: int = Form(...),
-    pdf_url: Optional[UploadFile] = File(None),
-    db: Session = Depends(get_db)
-):
-    if pdf_url:
-        next_id = get_next_id(db)  # Assuming you have this helper
-        file_extension = os.path.splitext(pdf_url.filename)[-1]
-        new_filename = f"{next_id + 1}{file_extension}"
-        image_path = os.path.join(UPLOAD_DIR, new_filename)
-
-        # Save the file
-        with open(image_path, "wb") as f:
-            shutil.copyfileobj(pdf_url.file, f)
-    else:
-        new_filename = "No document uploaded"
-        image_path = new_filename
-
-    # Save to database
-    new_quotation = Quotation(order_id=order_id, pdf_url=new_filename)
-    db.add(new_quotation)
-    db.commit()
-    db.refresh(new_quotation)
-
-    return {"id": new_quotation.id}
-
-# ✅ Get single quotation
 @router.get("/{order_id}", response_model=QuotationResponse)
 def get_quotation(order_id: int, db: Session = Depends(get_db)):
     quotation = db.query(Quotation).filter(
@@ -90,35 +61,25 @@ def get_quotation(order_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Quotation not found")
     return quotation
 
-
-# ✅ Get all quotations
 @router.get("/", response_model=list[QuotationResponse])
 def get_all_quotations(db: Session = Depends(get_db)):
-    quotations = db.query(Quotation).filter(Quotation.is_delete == False).all()
-    return quotations
+    return db.query(Quotation).filter(Quotation.is_delete == False).all()
 
-
-# ✅ Update quotation
 @router.put("/quotation/{quotation_id}", response_model=QuotationResponse)
 def update_quotation(quotation_id: int, updated_data: QuotationCreate, db: Session = Depends(get_db)):
     quotation = db.query(Quotation).filter(Quotation.id == quotation_id, Quotation.is_delete == False).first()
     if not quotation:
         raise HTTPException(status_code=404, detail="Quotation not found")
-
     quotation.order_id = updated_data.order_id
-    quotation.pdf_url = updated_data.pdf_url
     db.commit()
     db.refresh(quotation)
     return quotation
 
-
-# ✅ Delete quotation (soft delete)
 @router.delete("/{quotation_id}")
 def delete_quotation(quotation_id: int, db: Session = Depends(get_db)):
     quotation = db.query(Quotation).filter(Quotation.id == quotation_id).first()
     if not quotation:
         raise HTTPException(status_code=404, detail="Quotation not found")
-
     quotation.is_active = False
     quotation.is_delete = True
     db.commit()
