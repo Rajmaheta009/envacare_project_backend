@@ -15,4 +15,3 @@ jinja2
 weasyprint
 pydantic[email]
 uvicorn[standard]
-xlsxwriter

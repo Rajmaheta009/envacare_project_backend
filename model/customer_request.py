@@ -8,6 +8,7 @@ class Customer_request(Base):
     c_name = Column(String)
     name = Column(String, index=True)
     email = Column(String(255), unique=True, index=True)  # Added length for email
+    gst = Column(String(15))
     address = Column(String)
     phone_number = Column(String)  # Changed to String for phone number
     whatsapp_number = Column(String)  # Changed to String for phone number
