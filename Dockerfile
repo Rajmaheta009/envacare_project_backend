@@ -5,26 +5,34 @@ FROM python:3.11-slim
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
+# Install system dependencies required by WeasyPrint and psycopg2
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libpango-1.0-0 \
+    libpangoft2-1.0-0 \
+    libgdk-pixbuf2.0-0 \
+    libcairo2 \
+    libffi-dev \
+    libglib2.0-0 \
+    shared-mime-info \
+    libpq-dev && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
 # Set the working directory
 WORKDIR /app
 
-# Install system dependencies (libpq-dev for psycopg2, build-essential for compilation, etc.)
-RUN apt-get update && apt-get install -y \
-    libpq-dev \
-    build-essential \
-    && rm -rf /var/lib/apt/lists/*
+# Copy the requirements file
+COPY requirements.txt .
 
-# Copy requirements.txt to the container
-COPY requirements.txt /app/
-
-# Upgrade pip and install Python dependencies
+# Install Python dependencies
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
-# Copy the rest of the application code into the container
-COPY . /app/
+# Copy application code
+COPY . .
 
-# Expose port 8000 for the backend server
+# Expose port (adjust as needed for your app)
 EXPOSE 8000
 
-# Start the FastAPI server with Uvicorn
+# Default command to run the application using Uvicorn
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
