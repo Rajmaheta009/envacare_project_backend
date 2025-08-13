@@ -5,19 +5,34 @@ FROM python:3.11-slim
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
-# Install system dependencies required by WeasyPrint and psycopg2
-RUN apt-get update && apt-get install -y \
-    build-essential \
+# Install essential dependencies first
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends build-essential
+
+# Install WeasyPrint dependencies
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
     libpango-1.0-0 \
     libpangoft2-1.0-0 \
-    libgdk-pixbuf2.0-0 \
-    libcairo2 \
+    libgdk-pixbuf-xlib-2.0-0 \
+    libcairo2
+
+# Install libffi and libglib dependencies
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
     libffi-dev \
-    libglib2.0-0 \
+    libglib2.0-0
+
+# Install mime-info and PostgreSQL libraries
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
     shared-mime-info \
-    libpq-dev && \
-    apt-get clean && \
+    libpq-dev
+
+# Clean up to reduce image size
+RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/*
+
 
 # Set the working directory
 WORKDIR /app
@@ -25,14 +40,15 @@ WORKDIR /app
 # Copy the requirements file
 COPY requirements.txt .
 
-# Install Python dependencies
-RUN pip install --upgrade pip && pip install -r requirements.txt
+# Install Python dependencies with no cache to reduce image size
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
 
-# Copy application code
+# Copy only necessary application code, excluding unnecessary files (use .dockerignore)
 COPY . .
 
-# Expose port (adjust as needed for your app)
+# Expose the port the app will run on
 EXPOSE 8000
 
-# Default command to run the application using Uvicorn
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Default command to run the application using Uvicorn in development mode (with auto-reload)
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
